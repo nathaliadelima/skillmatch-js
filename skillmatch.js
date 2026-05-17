@@ -31,3 +31,25 @@ const vagas = [
     modalidade: 'Presencial',
 },
 ]
+
+/*
+compatibilidade = quantidade de requisitos do candidato que correspondem aos requisitos da vaga / quantidade total de requisitos da vaga * 100
+
+exemplo de resultado esperado no console:
+
+empresa = ______
+cargo = ______
+compatibilidade = __%
+habilidades encontradas
+habilidades faltantes = ______
+classificação = baixa/média/alta compatibilidade
+*/
+
+vagas.forEach((vaga) => { // percorre a lista de vagas, a cada volta "vaga" representa uma vaga diferente, são 3
+  const habilidadesEncontradas = vaga.requisitos.filter((requisitos) => // cria uma lista filtrando os requisitos daquela vaga específica, "requisitos" é o apelido de cada item na vez
+  candidato.habilidades.includes(requisitos), // condição do filter: verifica se as habilidades do candidato incluem aquele requisito — se sim, mantém; se não, descarta
+  );
+
+  console.log(habilidadesEncontradas);
+});
+
