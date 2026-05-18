@@ -69,9 +69,12 @@ vagas.forEach((vaga) => {
     (requisito) => !candidato.habilidades.includes(requisito),
   );
   if (habilidadesFaltantes.length === 0) {
-    console.log("Habilidades faltantes: Nenhuma");
+    console.log('Para a vaga da ' + vaga.empresa + ', o candidato atende todos os requisitos!')
   } else {
-    console.log("Habilidades faltantes: " + habilidadesFaltantes.join(", "));
+    console.log("Para a vaga da " + vaga.empresa + ", faltam:"); 
+    habilidadesFaltantes.forEach((habilidade) => {
+      console.log("- " + habilidade);
+    });
   }
 
   const compatibilidade =
