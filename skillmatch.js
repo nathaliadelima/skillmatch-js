@@ -46,6 +46,10 @@ habilidades faltantes = ______
 classificação = baixa/média/alta compatibilidade
 */
 
+
+let melhorVaga = '' // vai guardar a vaga mais compatível
+let maiorCompatibilidade = 0  // vai guardar a maior % encontrada até agora
+
 vagas.forEach((vaga) => {
 
   console.log("Empresa: " + vaga.empresa);
@@ -89,4 +93,14 @@ vagas.forEach((vaga) => {
   }
 
   console.log("");
+
+  if (compatibilidade > maiorCompatibilidade) {
+    maiorCompatibilidade = compatibilidade
+    melhorVaga = vaga
+}
+
 });
+
+console.log('Vaga mais compatível:')
+console.log(melhorVaga.empresa + ' - ' + melhorVaga.cargo)
+console.log('Compatibilidade: ' + maiorCompatibilidade.toFixed(0) + '%')
