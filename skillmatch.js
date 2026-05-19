@@ -104,3 +104,23 @@ vagas.forEach((vaga) => {
 console.log('Vaga mais compatível:')
 console.log(melhorVaga.empresa + ' - ' + melhorVaga.cargo)
 console.log('Compatibilidade: ' + maiorCompatibilidade.toFixed(0) + '%')
+
+// percorre todas as vagas e coleta os requisitos que a Nathalia ainda não tem, juntando tudo numa lista só
+const todasFaltantes = vagas.flatMap(vaga =>
+    vaga.requisitos.filter(requisito => 
+        !candidato.habilidades.includes(requisito) // se a habilidade NÃO está no perfil, entra na lista
+    )
+)
+
+// pega todos os itens da lista MENOS o último
+const semUltimo = todasFaltantes.slice(0, -1).join(', ')
+
+// pega só o último item da lista
+const ultimo = todasFaltantes[todasFaltantes.length - 1]
+
+// junta tudo: os primeiros separados por vírgula + "e" + o último
+const listaFormatada = semUltimo + ' e ' + ultimo
+
+console.log("");
+// exibe a recomendação de estudo com todas as habilidades faltantes formatadas
+console.log('Recomendação de estudo: Priorize estudar ' + listaFormatada + ', pois esses conteúdos aparecem nas vagas analisadas.');
