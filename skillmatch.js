@@ -63,6 +63,10 @@ async function iniciarSistema() {
     console.log("Vagas carregadas com sucesso!")
     console.log('')
 
+const todasTemSalario = vagasCarregadas.every(vaga => vaga.salario > 0)
+console.log('Todas as vagas possuem salário definido? ' + (todasTemSalario ? 'Sim' : 'Não'))
+console.log('')
+
 function criarContadorDeAnalises() {
     let total = 0
 
@@ -109,9 +113,9 @@ vagasCarregadas.forEach((vaga) => {
     );
   } else {
     console.log("Para a vaga da " + vaga.empresa + ", faltam:");
-    habilidadesFaltantes.forEach((habilidade) => {
+    for (const habilidade of habilidadesFaltantes) {
       console.log("- " + habilidade);
-    });
+    }
   }
 
   const compatibilidade =
