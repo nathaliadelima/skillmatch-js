@@ -124,3 +124,46 @@ const listaFormatada = semUltimo + ' e ' + ultimo
 console.log("");
 // exibe a recomendação de estudo com todas as habilidades faltantes formatadas
 console.log('Recomendação de estudo: Priorize estudar ' + listaFormatada + ', pois esses conteúdos aparecem nas vagas analisadas.');
+
+console.log("");
+
+class Vaga {
+    constructor(empresa, cargo, requisitos, salario, modalidade) {
+        this.empresa = empresa
+        this.cargo = cargo
+        this.requisitos = requisitos
+        this.salario = salario
+        this.modalidade = modalidade
+    }
+
+    exibirResumo() {
+        return `${this.cargo} na empresa ${this.empresa}`
+    }
+}
+
+const vaga1 = new Vaga('TechStart', 'Desenvolvedor Front-end Júnior', ['JavaScript', 'GitHub', 'Lógica de programação'], 2800, 'Remoto');
+const vaga2 = new Vaga('CodeLab', 'Estágio Front-end', ['JavaScript', 'Kamban', 'GitHub'], 1800, 'Presencial');
+const vaga3 = new Vaga('WebSolutions', 'Programador JavaScript Júnior', ['Arrays', 'Objetos', 'Funções'], 3000, 'Presencial');
+
+console.log('Resumo das vagas analisadas:')
+;[vaga1, vaga2, vaga3].map(v => console.log('- ' + v.exibirResumo()))
+
+console.log("");  
+
+class VagaFrontEnd extends Vaga {
+
+    constructor(vaga, nivel) {
+        super(vaga.empresa, vaga.cargo, vaga.requisitos, vaga.salario, vaga.modalidade);
+        this.nivel = nivel
+    }
+
+    exibirNivel(nivel) {
+        return this.nivel
+    
+    }
+}
+
+const vagaFront = new VagaFrontEnd(vaga1, 'Júnior');
+
+console.log('Vaga em destaque: ' + vagaFront.exibirResumo())
+console.log('Nível: ' + vagaFront.exibirNivel())
