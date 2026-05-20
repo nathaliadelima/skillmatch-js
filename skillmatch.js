@@ -167,3 +167,18 @@ const vagaFront = new VagaFrontEnd(vaga1, 'Júnior');
 
 console.log('Vaga em destaque: ' + vagaFront.exibirResumo())
 console.log('Nível: ' + vagaFront.exibirNivel())
+
+console.log ('');
+
+ 
+function finalizarAnalise(nomeCandidato, callback) { 
+  console.log("Análise finalizada."); 
+  callback(nomeCandidato); 
+} 
+ 
+function exibirMensagemFinal(nome) { 
+  console.log(`${nome}, revise suas habilidades faltantes e atualize seu plano de 
+estudos.`); 
+} 
+
+finalizarAnalise(candidato.nome, exibirMensagemFinal);
